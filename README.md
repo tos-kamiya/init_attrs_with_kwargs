@@ -18,3 +18,5 @@ print("args.count=%s" % repr(args.count))
 print("args.name=%s" % repr(args.name))
 print("args.max_length=%s" % repr(args.max_length))
 ```
+
+For more details, please refer to the [sample](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py), which includes error handling.
