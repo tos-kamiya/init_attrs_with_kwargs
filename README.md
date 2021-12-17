@@ -6,7 +6,7 @@ A helper for type-checked command-line argument store
 ```python
 from init_attrs_with_kwargs import InitAttrsWKwArgs
 
-class MyArgs(InitAttrsWKwArgs):  # 
+class MyArgs(InitAttrsWKwArgs):
     count: int
     name: str
     max_length: int
