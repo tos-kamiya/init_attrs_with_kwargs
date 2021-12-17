@@ -85,13 +85,13 @@ class InitAttrsWKwArgsTest(unittest.TestCase):
         self.assertRaises(ValueError, lambda: BFISE(_cast_str_values=True, e=''))
         self.assertRaises(ValueError, lambda: BFISE(_cast_str_values=True, e='WHITE'))
 
-    def test_cast_str_values_wrong_params(self):
+    def test_cast_str_values_wrong_syntax(self):
         class FI(InitAttrsWKwArgs):
             f: float
             i: int
 
-        self.assertRaises(ValueError, lambda: FI(**{'---f': 1.0}))
-        self.assertRaises(ValueError, lambda: FI(**{'-0': 1.0}))
+        self.assertRaises(NameError, lambda: FI(**{'---f': 1.0}))
+        self.assertRaises(NameError, lambda: FI(**{'-0': 1.0}))
 
     def test_cast_str_values_wrong_attr_names(self):
         class BFISE(InitAttrsWKwArgs):
@@ -101,7 +101,7 @@ class InitAttrsWKwArgsTest(unittest.TestCase):
             s: str
             e: Color
 
-        self.assertRaises(NameError, lambda: BFISE(x=''))
+        self.assertRaises(KeyError, lambda: BFISE(x=''))
 
     def test_cast_str_values_optional(self):
         class BFISE_O(InitAttrsWKwArgs):

@@ -17,7 +17,7 @@ class InitAttrsWKwArgs:
         
         if not(len(ns) > 0 and ('a' <= ns[0] <= 'z' or 'A' <= ns[0] <= 'Z') and \
                 all('a' <= c <= 'z' or 'A' <= c <= 'Z' or '0' <= c <= '9' or c == '_' for c in ns)):
-            raise ValueError("Invalid name for option or positional argument: %s" % repr(name))
+            raise NameError("Invalid name for option or positional argument: %s" % repr(name))
 
         return ns
 
@@ -43,7 +43,7 @@ class InitAttrsWKwArgs:
             attr = InitAttrsWKwArgs._convert_option_name_to_attr_name(name)
             t = attr_to_type.get(attr)
             if t is None:
-                raise NameError("attribute `%s` not found in class `%s`" % (repr(attr), repr(self.__class__)))
+                raise KeyError("attribute `%s` not found in class `%s`" % (repr(attr), repr(self.__class__)))
             v = kwargs[name]
             if _cast_str_values and isinstance(v, str):
                 o = get_origin(t)

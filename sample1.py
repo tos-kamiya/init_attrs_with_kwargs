@@ -33,6 +33,6 @@ print("v3.max_length=%s" % repr(v3.max_length))
 print("v3.color=%s" % repr(v3.color))
 
 # Error checking
-# MyArgs(_cast_str_values=True, **{'--nam': "Joe"})  # raises NameError
-# MyArgs(_cast_str_values=True, **{'<count>': "vii"})  # raises ValueError
-# MyArgs(_cast_str_values=True, **{'---x': "vii"})  # raises ValueError
+# MyArgs(_cast_str_values=True, **{'--nam': "Joe"})  # raises KeyError: "attribute `'nam'` not found in class `<class '__main__.MyArgs'>`"
+# MyArgs(_cast_str_values=True, **{'<count>': "vii"})  # raises ValueError: invalid literal for int() with base 10: 'vii'
+# MyArgs(_cast_str_values=True, **{'---x': "vii"})  # raises NameError: Invalid name for option or positional argument: '---x'
