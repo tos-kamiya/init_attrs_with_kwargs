@@ -1,4 +1,8 @@
-# init_attrs_with_kwargs
+![test workflow](https://github.com/tos-kamiya/init_attrs_with_kwargs/workflows/Tests/badge.svg)
+
+init_attrs_with_kwargs
+======================
+
 A helper for type-checked command-line argument store
 
 ## Sample
@@ -19,4 +23,7 @@ print("args.name=%s" % repr(args.name))
 print("args.max_length=%s" % repr(args.max_length))
 ```
 
-For more details, please refer to the [sample](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py), which includes error handling.
+### Another samples:
+
+* [sample1.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py). Includes error handling.
+* [sample2.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample2.py). Use with `init_attrs_with_kwargs` with `docopt`.
