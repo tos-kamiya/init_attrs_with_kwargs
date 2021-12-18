@@ -127,6 +127,15 @@ class InitAttrsWKwArgsTest(unittest.TestCase):
         self.assertEqual(v.f, 2.0)
         self.assertEqual(v.i, 3)
 
+    def test_cast_str_values_list(self):
+        class FI_L(InitAttrsWKwArgs):
+            fl: List[float]
+            il: List[int]
+
+        v: FI_O = FI_L(_cast_str_values=True, fl=['1.0', '2.0'], il=['3', '4'])
+        self.assertEqual(v.fl, [1.0, 2.0])
+        self.assertEqual(v.il, [3, 4])
+
 
 if __name__ == "__main__":
     unittest.main()
