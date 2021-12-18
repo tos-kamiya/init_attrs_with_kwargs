@@ -3,7 +3,7 @@
 init_attrs_with_kwargs
 ======================
 
-A helper for type-checked command-line argument store
+A helper for type-checked command-line argument store.
 
 ## Sample
 
@@ -25,5 +25,5 @@ print("args.max_length=%s" % repr(args.max_length))
 
 ### Another samples:
 
-* [sample1.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py). Includes error handling.
-* [sample2.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample2.py). Use with `init_attrs_with_kwargs` with `docopt`.
+* [sample1.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py). Describes data type conversion and error handling.
+* [sample2.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample2.py). Storing `docopt`-parsed command line arguments in a type-hinted class's object.
