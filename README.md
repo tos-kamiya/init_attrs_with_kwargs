@@ -36,7 +36,16 @@ I like to use docopt to design command lines.
 With docopt, I can design a command line in a vague state at first, and then I can make it more and more concrete and detailed.
 
 As a recent trend in Python coding, you can also use type hints for code completion in text editors such as VSCode.
-Here's the problem: since the result of docopt parsing is a dictionary, you will be accessing, for example, args["name"], and the editor's completion will not work. Similarly, you cannot benefit from static type checking with type hints.
+Here's the problem: since the result of docopt parsing is a dict, you will be accessing, for example, args["name"], and the editor's completion will not work. Similarly, you cannot benefit from static type checking with type hints.
 
-This issue can be solved by converting a docopt dictionary into an object of a typed class.
+This issue can be solved by converting a docopt dict into an object of a typed class.
 `init_attrs_with_kwargs` is a helper just for this purpose.
+
+## Links
+
+* (PyPI page of) `init_attrs_with_kwargs` https://pypi.org/project/init-attrs-with-kwargs/
+* `docopt` https://pypi.org/project/docopt/
+
+* `type-docopt`, which introduces type declaration, and holds arguments/options in dict. https://pypi.org/project/type-docopt/
+
+
