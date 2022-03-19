@@ -27,9 +27,9 @@ def main():
     args: MyArgs = MyArgs(_cast_str_values=True, **docopt(__doc__))
     # print("args=%s" % args)
     if args.maximum:
-        print(max(*args.number))
+        print(max(args.number))
     elif args.minimum:
-        print(min(*args.number))
+        print(min(args.number))
     else:
         t = sum(args.number)
         if args.average:
