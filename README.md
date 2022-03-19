@@ -29,6 +29,7 @@ print("args.max_length=%s" % repr(args.max_length))
 
 * [sample1.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample1.py). Describes data type conversion and error handling.
 * [sample2.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample2.py). Storing `docopt`-parsed command line arguments in a type-hinted class's object.
+* [sample3.py](https://github.com/tos-kamiya/init_attrs_with_kwargs/blob/main/sample3.py). Handling command and optional argument.
 
 ## Motivation
 
