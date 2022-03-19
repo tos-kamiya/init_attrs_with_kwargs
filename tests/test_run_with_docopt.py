@@ -8,7 +8,7 @@ from init_attrs_with_kwargs import InitAttrsWKwArgs
 
 
 class RunWithDocopt(unittest.TestCase):
-    def test_simple(self):
+    def test_sample2(self):
         doc = """Get total of numbers.
 
         Usage:
@@ -43,6 +43,15 @@ class RunWithDocopt(unittest.TestCase):
         self.assertTrue(args.maximum)
         self.assertFalse(args.average)
         self.assertSequenceEqual(args.number, [10.0, 20.0, 30.0])
+
+        args = MyArgs(_cast_str_values=True, **docopt.docopt(doc, ["10.0"]))
+        self.assertFalse(args.minimum)
+        self.assertFalse(args.maximum)
+        self.assertFalse(args.average)
+        self.assertSequenceEqual(args.number, [10.0])
+
+        self.assertRaises(docopt.DocoptExit, lambda: MyArgs(_cast_str_values=True, **docopt.docopt(doc, ["-m", "-M", "10.0"])))
+        self.assertRaises(docopt.DocoptExit, lambda: MyArgs(_cast_str_values=True, **docopt.docopt(doc, [])))
 
 
 if __name__ == "__main__":
