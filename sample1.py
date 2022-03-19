@@ -15,7 +15,7 @@ class MyArgs(InitAttrsWKwArgs):
     color: Color
 
 # Initialize with keyword argument.
-v2: MyArgs = MyArgs(count=10, name='Jane', max_length=99, color=Color.RED)
+v2 = MyArgs(count=10, name='Jane', max_length=99, color=Color.RED)
 
 print("dir(v2)=%s" % repr(dir(v2)))
 print("v2.count=%s" % repr(v2.count))
@@ -24,7 +24,7 @@ print("v2.max_length=%s" % repr(v2.max_length))
 print("v2.color=%s" % repr(v2.color))
 
 # Initialize from docopt's return value, with casting str to int.
-v3: MyArgs = MyArgs(_cast_str_values=True, **{'<count>': '1', '--name': "Joe", '--max-length': '100', '--color': 'RED'})
+v3 = MyArgs(_cast_str_values=True, **{'<count>': '1', '--name': "Joe", '--max-length': '100', '--color': 'RED'})
 
 print("dir(v3)=%s" % repr(dir(v3)))
 print("v3.count=%s" % repr(v3.count))
@@ -33,7 +33,7 @@ print("v3.max_length=%s" % repr(v3.max_length))
 print("v3.color=%s" % repr(v3.color))
 
 # Options and positional arguments are fine as long as their names do not conflict.
-v4: MyArgs = MyArgs(_cast_str_values=True, **{'--count': '1', '<name>': "Joe", '--max_length': '100', '-color': 'RED'})
+v4 = MyArgs(_cast_str_values=True, **{'--count': '1', '<name>': "Joe", '--max_length': '100', '-color': 'RED'})
 
 print("dir(v4)=%s" % repr(dir(v4)))
 print("v4.count=%s" % repr(v4.count))

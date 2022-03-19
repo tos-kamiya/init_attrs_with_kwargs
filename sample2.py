@@ -24,7 +24,7 @@ Options:
 
 
 def main():
-    args: MyArgs = MyArgs(_cast_str_values=True, **docopt(__doc__))
+    args = MyArgs(_cast_str_values=True, **docopt(__doc__))
     # print("args=%s" % args)
     if args.maximum:
         print(max(args.number))

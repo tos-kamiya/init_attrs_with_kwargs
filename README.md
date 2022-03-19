@@ -18,7 +18,7 @@ class MyArgs(InitAttrsWKwArgs):
     max_length: int
 
 # Initialize from docopt's return value, with casting str to int
-args: MyArgs = MyArgs(_cast_str_values=True, **{'<count>': '1', '--name': "Joe", '--max-length': '100'})
+args = MyArgs(_cast_str_values=True, **{'<count>': '1', '--name': "Joe", '--max-length': '100'})
 
 print("args.count=%s" % repr(args.count))
 print("args.name=%s" % repr(args.name))
