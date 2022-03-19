@@ -11,7 +11,7 @@ class MyArgs(InitAttrsWKwArgs):
     verbose: bool
 
 
-__doc__ = """Run a script.
+__doc__ = """Compile and run a program.
 
 Usage:
   sample3 compile [options] <program>
