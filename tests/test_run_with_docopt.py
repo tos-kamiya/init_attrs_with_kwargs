@@ -9,7 +9,7 @@ from init_attrs_with_kwargs import InitAttrsWKwArgs
 
 class RunWithDocopt(unittest.TestCase):
     def test_simple(self):
-        doc = '''Get total of numbers.
+        doc = """Get total of numbers.
 
         Usage:
         sample2 [--maximum|--minimum|--average] <number>...
@@ -18,7 +18,7 @@ class RunWithDocopt(unittest.TestCase):
         --maximum, -M     Get the largest number.
         --minimum, -m     Get the smallest number.
         --average, -a     Get the average of the numbers.
-        '''
+        """
 
         class MyArgs(InitAttrsWKwArgs):
             maximum: bool
@@ -43,7 +43,6 @@ class RunWithDocopt(unittest.TestCase):
         self.assertTrue(args.maximum)
         self.assertFalse(args.average)
         self.assertSequenceEqual(args.number, [10.0, 20.0, 30.0])
-
 
 
 if __name__ == "__main__":

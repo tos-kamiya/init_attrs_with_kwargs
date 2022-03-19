@@ -11,7 +11,7 @@ class MyArgs(InitAttrsWKwArgs):
     number: List[float]
 
 
-__doc__ = '''Get total of numbers.
+__doc__ = """Get total of numbers.
 
 Usage:
   sample2 [--maximum|--minimum|--average] <number>...
@@ -20,7 +20,7 @@ Options:
   --maximum, -M     Get the largest number.
   --minimum, -m     Get the smallest number.
   --average, -a     Get the average of the numbers.
-'''
+"""
 
 
 def main():
@@ -38,5 +38,5 @@ def main():
             print(t)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

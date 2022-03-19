@@ -10,7 +10,8 @@ class MyArgs(InitAttrsWKwArgs):
     program: Optional[str]
     verbose: bool
 
-__doc__ = '''Run a script.
+
+__doc__ = """Run a script.
 
 Usage:
   sample3 compile [options] <program>
@@ -18,7 +19,7 @@ Usage:
 
 Options:
   --verbose, -v     Verbose.
-'''
+"""
 
 
 def main():
@@ -35,5 +36,5 @@ def main():
         assert False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
