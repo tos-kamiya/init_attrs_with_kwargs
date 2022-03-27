@@ -48,13 +48,13 @@ class InitAttrsWKwArgs:
 
         Args:
             target: target object whose attributes are changed.
-            cast_str_values: Optional. if True, when an assingned value is str, convert it into either bool, 
+            cast_str_values: Optional. if True, when an assingned value is str, convert it into either bool,
               int, float, or list of these types, depending on types of the target attribute.
             kwargs: values to be assigned to target attributes.
 
         Returns:
             target object.
-        
+
         Raises:
             KeyError: In case target object does not have such attribute. In case wrong enum name.
         """
@@ -89,6 +89,7 @@ class InitAttrsWKwArgs:
 
 set_attrs = InitAttrsWKwArgs.set_attrs
 
+
 def cast_set_attrs(target: T, **kwargs: Any) -> T:
     """Assign target object's attributes with keyword arguments, with converting str values.
 
@@ -98,8 +99,8 @@ def cast_set_attrs(target: T, **kwargs: Any) -> T:
 
     Returns:
         target object.
-    
+
     Raises:
         KeyError: In case target object does not have such attribute. In case wrong enum name.
     """
-    return InitAttrsWKwArgs.set_attrs(target, cast_str_values = True, **kwargs)
+    return InitAttrsWKwArgs.set_attrs(target, cast_str_values=True, **kwargs)

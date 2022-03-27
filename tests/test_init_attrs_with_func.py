@@ -129,7 +129,7 @@ class InitAttrsWKwArgsTest(unittest.TestCase):
         class FI_O:
             f: Optional[float]
             i: Optional[int]
- 
+
         v = set_attrs(FI_O(), cast_str_values=True, f="2.0", i="3")
         self.assertEqual(v.f, 2.0)
         self.assertEqual(v.i, 3)
@@ -138,6 +138,7 @@ class InitAttrsWKwArgsTest(unittest.TestCase):
         class FI_L:
             fl: List[float]
             il: List[int]
+
         v = set_attrs(FI_L(), cast_str_values=True, fl=["1.0", "2.0"], il=["3", "4"])
         self.assertEqual(v.fl, [1.0, 2.0])
         self.assertEqual(v.il, [3, 4])

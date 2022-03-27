@@ -14,6 +14,7 @@ class MyArgs:
     max_length: int
     color: Color
 
+
 # Initialize from docopt's return value, with casting str to int.
 v3 = cast_set_attrs(MyArgs(), **{"<count>": "1", "--name": "Joe", "--max-length": "100", "--color": "RED"})
 
