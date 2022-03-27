@@ -10,15 +10,15 @@ A helper for type-checked command-line argument store.
 ## Sample
 
 ```python
-from init_attrs_with_kwargs import InitAttrsWKwArgs
+from init_attrs_with_kwargs import cast_set_attrs
 
-class MyArgs(InitAttrsWKwArgs):
+class MyArgs:
     count: int
     name: str
     max_length: int
 
 # Initialize from docopt's return value, with casting str to int
-args = MyArgs(_cast_str_values=True, **{'<count>': '1', '--name': "Joe", '--max-length': '100'})
+args = cast_set_attrs(MyArgs(), **{'<count>': '1', '--name': "Joe", '--max-length': '100'})
 
 print("args.count=%s" % repr(args.count))
 print("args.name=%s" % repr(args.name))

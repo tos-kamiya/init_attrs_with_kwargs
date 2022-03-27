@@ -1,10 +1,10 @@
 from typing import *
 
 from docopt import docopt
-from init_attrs_with_kwargs import InitAttrsWKwArgs
+from init_attrs_with_kwargs import cast_set_attrs
 
 
-class MyArgs(InitAttrsWKwArgs):
+class MyArgs:
     compile: bool
     run: bool
     program: Optional[str]
@@ -23,7 +23,7 @@ Options:
 
 
 def main():
-    args = MyArgs(_cast_str_values=True, **docopt(__doc__))
+    args = cast_set_attrs(MyArgs(), **docopt(__doc__))
     # print("args=%s" % args)
     if args.compile:
         assert args.program is not None

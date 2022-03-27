@@ -1,5 +1,8 @@
-from typing import get_type_hints, get_origin, get_args, Union, List
+from typing import get_type_hints, get_origin, get_args, Any, Dict, TypeVar, Union
 from enum import Enum
+
+
+T = TypeVar("T")
 
 
 class InitAttrsWKwArgs:
@@ -37,14 +40,18 @@ class InitAttrsWKwArgs:
             return value  # not converted
 
     def __init__(self, _cast_str_values=False, **kwargs):
-        attr_to_type = get_type_hints(self.__class__)
+        InitAttrsWKwArgs.set_attrs(self, cast_str_values=_cast_str_values, **kwargs)
+
+    @staticmethod
+    def set_attrs(target: T, cast_str_values: bool = False, **kwargs: Any) -> T:
+        attr_to_type = get_type_hints(target.__class__)
         for name in kwargs:
             attr = InitAttrsWKwArgs._convert_option_name_to_attr_name(name)
             t = attr_to_type.get(attr)
             if t is None:
-                raise KeyError("attribute `%s` not found in class `%s`" % (repr(attr), repr(self.__class__)))
+                raise KeyError("attribute `%s` not found in class `%s`" % (repr(attr), repr(target.__class__)))
             v = kwargs[name]
-            if _cast_str_values:
+            if cast_str_values:
                 ot = get_origin(t)
                 if isinstance(v, list) and ot is list:
                     it = get_args(t)[0]
@@ -59,7 +66,14 @@ class InitAttrsWKwArgs:
                                 v = InitAttrsWKwArgs._convert_str_value(v, ts[0])
                     else:
                         v = InitAttrsWKwArgs._convert_str_value(v, t)
-            setattr(self, attr, v)
+            setattr(target, attr, v)
+        return target
 
     def __repr__(self) -> str:
         return "%s(%s)" % (self.__class__.__name__, ", ".join("%s=%s" % (a, repr(getattr(self, a))) for a in get_type_hints(self.__class__).keys()))
+
+
+set_attrs = InitAttrsWKwArgs.set_attrs
+
+def cast_set_attrs(target: T, **kwargs: Any) -> T:
+    return InitAttrsWKwArgs.set_attrs(target, cast_str_values = True, **kwargs)
