@@ -1,6 +1,7 @@
-from typing import *
+from typing import Optional
 
 from docopt import docopt
+
 from init_attrs_with_kwargs import cast_set_attrs
 
 

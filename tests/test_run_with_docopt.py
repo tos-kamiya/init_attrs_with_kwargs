@@ -50,7 +50,9 @@ class RunWithDocopt(unittest.TestCase):
         self.assertFalse(args.average)
         self.assertSequenceEqual(args.number, [10.0])
 
-        self.assertRaises(docopt.DocoptExit, lambda: MyArgs(_cast_str_values=True, **docopt.docopt(doc, ["-m", "-M", "10.0"])))
+        self.assertRaises(
+            docopt.DocoptExit, lambda: MyArgs(_cast_str_values=True, **docopt.docopt(doc, ["-m", "-M", "10.0"]))
+        )
         self.assertRaises(docopt.DocoptExit, lambda: MyArgs(_cast_str_values=True, **docopt.docopt(doc, [])))
 
     def test_sample3(self):

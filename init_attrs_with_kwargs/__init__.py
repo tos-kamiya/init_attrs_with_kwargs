@@ -18,7 +18,11 @@ class InitAttrsWKwArgs:
             ns = name
         ns = ns.replace("-", "_")
 
-        if not (len(ns) > 0 and ("a" <= ns[0] <= "z" or "A" <= ns[0] <= "Z") and all("a" <= c <= "z" or "A" <= c <= "Z" or "0" <= c <= "9" or c == "_" for c in ns)):
+        if not (
+            len(ns) > 0
+            and ("a" <= ns[0] <= "z" or "A" <= ns[0] <= "Z")
+            and all("a" <= c <= "z" or "A" <= c <= "Z" or "0" <= c <= "9" or c == "_" for c in ns)
+        ):
             raise NameError("Invalid name for option or positional argument: %s" % repr(name))
 
         return ns
@@ -84,7 +88,10 @@ class InitAttrsWKwArgs:
         return target
 
     def __repr__(self) -> str:
-        return "%s(%s)" % (self.__class__.__name__, ", ".join("%s=%s" % (a, repr(getattr(self, a))) for a in get_type_hints(self.__class__).keys()))
+        return "%s(%s)" % (
+            self.__class__.__name__,
+            ", ".join("%s=%s" % (a, repr(getattr(self, a))) for a in get_type_hints(self.__class__).keys()),
+        )
 
 
 set_attrs = InitAttrsWKwArgs.set_attrs
